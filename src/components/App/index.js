@@ -5,8 +5,8 @@ import Navigation from '../Navigation'
 import Home from '../Home'
 import Login from '../Login'
 
-const App = () => (
-  <div>
+const App = () => {
+  return (<div>
     <Router>
       <div>
         <Navigation />
@@ -14,7 +14,7 @@ const App = () => (
       <Route path={ROUTES.HOME} component={Home} />
       <Route path={ROUTES.LOGIN} component={Login} />
     </Router>
-  </div>
-);
+  </div>)
+};
 
 export default App;

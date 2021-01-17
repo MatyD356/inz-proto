@@ -13,9 +13,8 @@ const Login = () => {
     e.preventDefault();
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((user) => {
-        // Signed in 
-        console.log(user);
-        // ...
+        console.log(user.user.uid);
+        generateUserDocument(user.user.uid)
       })
       .catch((error) => {
         var errorCode = error.code;

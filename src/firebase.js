@@ -16,8 +16,15 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-export const generateUserDocument = async (user, additionalData) => {
-  const userRef = firestore.doc(`users/${user.uid}`);
-  const snapshot = await userRef.get();
-  console.log(snapshot);
+export const generateUserDocument = async (uid) => {
+  const docRef = firestore.collection('users').doc(uid)
+  docRef.get().then(function (doc) {
+    if (doc.exists) {
+      console.log("Document data:", doc.data());
+    } else {
+      console.log("No such document!");
+    }
+  }).catch(function (error) {
+    console.log("Error getting document:", error);
+  });
 }
