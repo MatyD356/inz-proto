@@ -16,11 +16,11 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-export const generateUserDocument = async (uid) => {
+export const generateUserDocument = async (uid, callback) => {
   const docRef = firestore.collection('users').doc(uid)
   docRef.get().then(function (doc) {
     if (doc.exists) {
-      console.log("Document data:", doc.data());
+      callback(doc.data())
     } else {
       console.log("No such document!");
     }

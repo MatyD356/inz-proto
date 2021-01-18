@@ -3,7 +3,7 @@ import { generateUserDocument } from '../../firebase'
 import firebase from "firebase/app";
 import "firebase/auth";
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const handleChange = (e) => {
@@ -13,13 +13,11 @@ const Login = () => {
     e.preventDefault();
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((user) => {
-        console.log(user.user.uid);
-        generateUserDocument(user.user.uid)
+        generateUserDocument(user.user.uid, setUser)
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorMessage)
+        const errorMessage = error.message;
+        alert(errorMessage)
       });
   }
   return (
