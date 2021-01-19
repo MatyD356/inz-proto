@@ -28,3 +28,16 @@ export const generateUserDocument = async (uid, callback) => {
     console.log("Error getting document:", error);
   });
 }
+export const addUserDocument = async (uid, userObj) => {
+  firestore.collection('users').doc(uid).set(userObj)
+}
+export const addUser = async (email, password, userObj) => {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((user) => {
+      addUserDocument(user.user.uid, userObj);
+    })
+    .catch((error) => {
+      var errorMessage = error.message;
+      console.log(errorMessage);
+    });
+}

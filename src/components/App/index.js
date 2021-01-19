@@ -13,6 +13,7 @@ const App = () => {
   return (<div>
     <Router>
       {/*TO DO implent auth routing in proper way*/}
+      {/*TO DO implent browser history obj*/}
       {user ? <Redirect to='/home' /> : <Redirect to='/' />}
       <Route exact path={ROUTES.LOGIN} component={() => <Login setUser={setUser} />} />
       <Route path={ROUTES.HOME} component={() => <Home user={user} />} />
