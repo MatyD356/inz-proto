@@ -23,8 +23,14 @@ const Login = ({ setUser }) => {
   return (
     <div>
       <form>
-        <input type='email' value={email} onChange={handleChange} id='email' />
-        <input type='password' value={password} onChange={handleChange} id='password' />
+        <div className='mb-3'>
+          <label htmlFor='email' className='form-label ' >Login</label>
+          <input type='email' className='form-control' value={email} onChange={handleChange} id='email' />
+        </div>
+        <div className='mb-3'>
+          <label htmlFor='password' className='form-label ' >Password</label>
+          <input type='password' className='form-control' value={password} onChange={handleChange} id='password' />
+        </div>
         <button onClick={(e) => handleSubmit(e)}>Log in</button>
       </form>
     </div>)
