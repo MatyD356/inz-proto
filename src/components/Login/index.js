@@ -21,19 +21,17 @@ const Login = ({ setUser }) => {
       });
   }
   return (
-    <div>
-      <form>
-        <div className='mb-3'>
-          <label htmlFor='email' className='form-label ' >Login</label>
-          <input type='email' className='form-control' value={email} onChange={handleChange} id='email' />
-        </div>
-        <div className='mb-3'>
-          <label htmlFor='password' className='form-label ' >Password</label>
-          <input type='password' className='form-control' value={password} onChange={handleChange} id='password' />
-        </div>
-        <button onClick={(e) => handleSubmit(e)}>Log in</button>
-      </form>
-    </div>)
+    <form className='col-md-6 offset-md-3 min-vh-100 d-flex flex-column justify-content-center'>
+      <div className='mb-3'>
+        <label htmlFor='email' className='form-label' >Login</label>
+        <input type='email' className='form-control' value={email} onChange={handleChange} id='email' />
+      </div>
+      <div className='mb-3'>
+        <label htmlFor='password' className='form-label' >Password</label>
+        <input type='password' className='form-control' value={password} onChange={handleChange} id='password' />
+      </div>
+      <button className='btn btn-primary col-md-3' onClick={(e) => handleSubmit(e)}>Log in</button>
+    </form>)
 };
 
 export default Login;

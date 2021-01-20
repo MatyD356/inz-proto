@@ -10,16 +10,17 @@ const App = () => {
   useEffect(() => {
     console.log(user);
   })
-  return (<div>
-    <Router>
-      {/*TO DO implent auth routing in proper way*/}
-      {/*TO DO implent browser history obj*/}
-      {user ? <Redirect to='/home' /> : <Redirect to='/' />}
-      <Route exact path={ROUTES.LOGIN} component={() => <Login setUser={setUser} />} />
-      <Route path={ROUTES.HOME} component={() => <Home user={user} />} />
-      <Route path={ROUTES.ADMIN} component={() => <Admin user={user} />} />
-    </Router>
-  </div>)
+  return (
+    <div className='container-fluid min-vh-100 d-flex flex-column'>
+      <Router>
+        {/*TO DO implent auth routing in proper way*/}
+        {/*TO DO implent browser history obj*/}
+        {user ? <Redirect to='/home' /> : <Redirect to='/' />}
+        <Route exact path={ROUTES.LOGIN} component={() => <Login setUser={setUser} />} />
+        <Route path={ROUTES.HOME} component={() => <Home user={user} />} />
+        <Route path={ROUTES.ADMIN} component={() => <Admin user={user} />} />
+      </Router>
+    </div>)
 };
 
 export default App;
