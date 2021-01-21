@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import Navigation from '../Navigation'
-import { addUser } from '../../firebase'
-
+import NewUserForm from '../NewUserForm'
 
 const Admin = ({ user }) => {
   const [users, setUser] = useState(null)
-  const [email, setEmail] = useState('newUser@gmail.com')
-  const [newUser, setNewUser] = useState({
-    name: 'bezi',
-    lastName: 'żółtodziób',
-    type: 'user',
-  })
+  const [userForm, setUserForm] = useState(false)
+  //addUser(email, '123456', newUser)
   return (
     <div>
       <Navigation user={user} />
       <h1>Admin</h1>
       <p>first name: {user.name}</p>
       <p>last name: {user.lastName}</p>
-      <button onClick={() => addUser(email, '123456', newUser)}>Add user</button>
-      <button>Show users</button>
+      <button className='btn btn-primary'>Show users</button>
+      <button
+        className={`btn ${userForm ? 'btn-danger' : 'btn-primary'}  ml-2`}
+        onClick={() => setUserForm(!userForm)}>
+        {userForm ? 'Cancel' : 'Add user'}
+      </button>
+      {userForm ? <NewUserForm /> : null}
     </div>
   )
 };
