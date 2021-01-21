@@ -1,24 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navigation from '../Navigation'
 import NewUserForm from '../NewUserForm'
+import { watchForChanges } from '../../firebase'
 
 const Admin = ({ user }) => {
-  const [users, setUser] = useState(null)
+  const [users, setUsers] = useState([])
   const [userForm, setUserForm] = useState(false)
-  //addUser(email, '123456', newUser)
+  useEffect(() => {
+    watchForChanges(setUsers)
+  }, [])
   return (
     <div>
       <Navigation user={user} />
       <h1>Admin</h1>
-      <p>first name: {user.name}</p>
-      <p>last name: {user.lastName}</p>
-      <button className='btn btn-primary'>Show users</button>
-      <button
-        className={`btn ${userForm ? 'btn-danger' : 'btn-primary'}  ml-2`}
-        onClick={() => setUserForm(!userForm)}>
-        {userForm ? 'Cancel' : 'Add user'}
-      </button>
-      {userForm ? <NewUserForm /> : null}
+      <div>
+        <ul className='list-group'>
+          <li className='list-group-item active'>
+            <span className='row'>
+              <span className='col-3 col-md-4'>First name</span>
+              <span className='col-4 col-md-3'>Last name</span>
+              <span className='col-3 col-md-3'>Type</span>
+            </span>
+          </li>
+          {users.length > 0
+            ? users.map(item =>
+              <li className='list-group-item'>
+                <span className='row'>
+                  <span className='col-3 col-md-4'>{item.name}</span>
+                  <span className='col-4 col-md-3'>{item.lastName}</span>
+                  <span className='col-3 col-md-3'>{item.type}</span>
+                  <button className='btn btn-danger'>delete</button>
+                </span>
+              </li>
+
+            )
+            : null
+          }
+        </ul>
+        <button
+          className={`btn ${userForm ? 'btn-danger' : 'btn-success'} mt-3`}
+          onClick={() => setUserForm(!userForm)}>
+          {userForm ? 'Cancel' : 'Add user'}
+        </button>
+        {userForm ? <NewUserForm toggleForm={setUserForm} /> : null}
+      </div>
     </div>
   )
 };

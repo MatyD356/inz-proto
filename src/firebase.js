@@ -40,3 +40,20 @@ export const addUser = async (email, password, userObj) => {
       console.log(errorMessage);
     });
 }
+
+export const getAllUsers = async (callback) => {
+  const docRef = await firestore.collection('users').get()
+  callback(docRef.docs.map(doc => doc.data()))
+}
+export const watchForChanges = (callback) => {
+  firestore.collection('users')
+    .onSnapshot((collection) => {
+      console.log((collection.docs))
+      callback(collection.docs.map(doc => doc.data()))
+    });
+}
+export const deleteUser = async (uid) => {
+  firebase.collection('users').doc(uid).delete()
+    .then(() => { alert('deleted') })
+    .catch((error) => alert(error))
+}

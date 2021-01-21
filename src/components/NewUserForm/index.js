@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { addUser } from '../../firebase'
 
-
-const Login = () => {
+const Login = ({ toggleForm }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [newUser, setNewUser] = useState({
-    name: 'bezi',
-    lastName: 'żółtodziób',
-    type: 'user',
-  })
-  useEffect(() => {
-    console.log(newUser);
+    name: '',
+    lastName: '',
+    type: '',
   })
   const editNewUserName = (e) => {
     setNewUser(Object.assign({}, newUser, { name: e.target.value }))
@@ -28,6 +24,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addUser(email, password, newUser)
+    toggleForm(false)
   }
   return (
     <form className=''>
@@ -58,7 +55,7 @@ const Login = () => {
           </select>
         </div>
       </div>
-      <button className='btn btn-primary' onClick={(e) => handleSubmit(e)}>Add</button>
+      <button className='btn btn-success' onClick={(e) => handleSubmit(e)}>Add</button>
     </form>)
 };
 
