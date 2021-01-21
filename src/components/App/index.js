@@ -11,7 +11,7 @@ const App = () => {
     console.log(user);
   })
   return (
-    <div className='container-fluid min-vh-100 d-flex flex-column'>
+    <div className='min-vh-100 d-flex flex-column'>
       <Router>
         {/*TO DO implent auth routing in proper way*/}
         {/*TO DO implent browser history obj*/}
