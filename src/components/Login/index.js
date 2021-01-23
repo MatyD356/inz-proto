@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { generateUserDocument } from '../../firebase'
-import firebase from "firebase/app";
-import "firebase/auth";
+import { authUser } from '../../firebase'
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const handleChange = (e) => {
@@ -11,14 +9,7 @@ const Login = ({ setUser }) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        generateUserDocument(user.user.uid, setUser)
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        alert(errorMessage)
-      });
+    authUser(email, password, setUser, history)
   }
   return (
     <form className='col-md-6 offset-md-3 min-vh-100 d-flex flex-column justify-content-center'>

@@ -1,5 +1,4 @@
-export const LOGIN = '/';
-export const HOME = '/home';
-export const ACCOUNT = '/account';
+export const HOME = '/';
+export const LOGIN = '/login';
+export const DASHBOARD = '/dashboard';
 export const ADMIN = '/admin';
-export const PASSWORD_FORGET = '/pw-forget';

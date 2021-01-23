@@ -57,3 +57,13 @@ export const deleteUser = async (uid) => {
     .then(() => { alert('deleted') })
     .catch((error) => alert(error))
 }
+
+export const authUser = (email, password, callback, history) => {
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(user => callback(user))
+    .then(() => history.push('/dashboard'))
+    .catch((error) => {
+      const errorMessage = error.message;
+      alert(errorMessage)
+    });
+}
