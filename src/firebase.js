@@ -28,7 +28,6 @@ export const generateUserDocument = async (uid, callback) => {
     console.log("Error getting document:", error);
   });
 }
-
 export const addUser = async (email, password, userObj) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((user) => {
@@ -40,7 +39,6 @@ export const addUser = async (email, password, userObj) => {
       console.log(errorMessage);
     });
 }
-
 export const getAllUsers = async (callback) => {
   const docRef = await firestore.collection('users').get()
   callback(docRef.docs.map(doc => doc.data()))

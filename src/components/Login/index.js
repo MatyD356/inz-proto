@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { authUser } from '../../firebase'
 
-const Login = ({ setUser, history }) => {
+const Login = ({ setCurrentUser, history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const handleChange = (e) => {
@@ -9,7 +9,7 @@ const Login = ({ setUser, history }) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    authUser(email, password, setUser, history)
+    authUser(email, password, setCurrentUser, history)
   }
   return (
     <form className='col-md-6 offset-md-3 min-vh-100 d-flex flex-column justify-content-center'>
