@@ -7,7 +7,7 @@ const Login = ({ toggleForm }) => {
   const [newUser, setNewUser] = useState({
     name: '',
     lastName: '',
-    type: '',
+    type: 'user',
   })
   const editNewUserName = (e) => {
     setNewUser(Object.assign({}, newUser, { name: e.target.value }))
@@ -50,7 +50,7 @@ const Login = ({ toggleForm }) => {
         <div className='form-group col-md-2'>
           <label htmlFor='lastName' className='form-label' >Type</label>
           <select type='text' className='form-control' id='lastName' value={newUser.type} onChange={editNewUserType}>
-            <option value='user' selected >user</option>
+            <option value='user' >user</option>
             <option value='admin' >admin</option>
           </select>
         </div>

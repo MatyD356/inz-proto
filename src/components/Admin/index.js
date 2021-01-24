@@ -3,7 +3,7 @@ import Navigation from '../Navigation'
 import NewUserForm from '../NewUserForm'
 import { watchForChanges } from '../../firebase'
 
-const Admin = ({ user }) => {
+const Admin = ({ currentUser }) => {
   const [users, setUsers] = useState([])
   const [userForm, setUserForm] = useState(false)
   useEffect(() => {
@@ -11,7 +11,7 @@ const Admin = ({ user }) => {
   }, [])
   return (
     <div>
-      <Navigation user={user} />
+      <Navigation />
       <div className='container'>
         <h1>Admin</h1>
         <div>
