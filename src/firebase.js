@@ -3,7 +3,7 @@ import "firebase/auth";
 import "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDGKkO0Uxa71BIY-XTqN7FG08i3SWXYcnI",
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "inz-proto.firebaseapp.com",
   projectId: "inz-proto",
   storageBucket: "inz-proto.appspot.com",
