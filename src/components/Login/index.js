@@ -19,7 +19,7 @@ const Login = ({ setCurrentUser, history }) => {
       </div>
       <div className='mb-3'>
         <label htmlFor='password' className='form-label' >Password</label>
-        <input type='password' className='form-control' value={password} onChange={handleChange} id='password' />
+        <input autoComplete='off' type='password' className='form-control' value={password} onChange={handleChange} id='password' />
       </div>
       <button className='btn btn-primary col-md-3' onClick={(e) => handleSubmit(e)}>Log in</button>
     </form>)

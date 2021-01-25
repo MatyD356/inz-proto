@@ -35,7 +35,7 @@ const Login = ({ toggleForm }) => {
         </div>
         <div className='form-group col-md-3'>
           <label htmlFor='password' className='form-label' >Password</label>
-          <input type='password' className='form-control' value={password} onChange={handleChange} id='password' />
+          <input autoComplete='off' type='password' className='form-control' value={password} onChange={handleChange} id='password' />
         </div>
       </div>
       <div className='form-row'>
@@ -48,8 +48,8 @@ const Login = ({ toggleForm }) => {
           <input type='text' className='form-control' id='lastName' value={newUser.lastName} onChange={editNewUserLastName} />
         </div>
         <div className='form-group col-md-2'>
-          <label htmlFor='lastName' className='form-label' >Type</label>
-          <select type='text' className='form-control' id='lastName' value={newUser.type} onChange={editNewUserType}>
+          <label htmlFor='type' className='form-label' >Type</label>
+          <select type='text' className='form-control' id='type' value={newUser.type} onChange={editNewUserType}>
             <option value='user' >user</option>
             <option value='admin' >admin</option>
           </select>

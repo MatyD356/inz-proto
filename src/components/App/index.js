@@ -7,7 +7,6 @@ import Login from '../Login'
 import NotFound from '../404'
 import Home from '../Home'
 import PrivateRoute from './PrivateRoute'
-import Admin from '../Admin'
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
@@ -22,12 +21,6 @@ const App = () => {
             currentUser={currentUser}
             path={ROUTES.DASHBOARD}
             component={DashBoard}
-          />
-          <PrivateRoute
-            authed={currentUser !== null ? true : false}
-            currentUser={currentUser}
-            path={ROUTES.ADMIN}
-            component={Admin}
           />
           <Route component={NotFound} />
         </Switch>

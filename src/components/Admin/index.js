@@ -3,7 +3,7 @@ import Navigation from '../Navigation'
 import NewUserForm from '../NewUserForm'
 import { watchForChanges } from '../../firebase'
 
-const Admin = ({ currentUser }) => {
+const Admin = () => {
   const [users, setUsers] = useState([])
   const [userForm, setUserForm] = useState(false)
   useEffect(() => {
@@ -11,7 +11,6 @@ const Admin = ({ currentUser }) => {
   }, [])
   return (
     <div>
-      <Navigation />
       <div className='container'>
         <h1>Admin</h1>
         <div>
@@ -24,8 +23,8 @@ const Admin = ({ currentUser }) => {
               </span>
             </li>
             {users.length > 0
-              ? users.map(item =>
-                <li className='list-group-item'>
+              ? users.map((item, index) =>
+                <li key={index} className='list-group-item'>
                   <span className='row'>
                     <span className='col-3 col-md-4'>{item.name}</span>
                     <span className='col-4 col-md-3'>{item.lastName}</span>

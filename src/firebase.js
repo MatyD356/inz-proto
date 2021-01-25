@@ -46,7 +46,6 @@ export const getAllUsers = async (callback) => {
 export const watchForChanges = (callback) => {
   firestore.collection('users')
     .onSnapshot((collection) => {
-      console.log((collection.docs))
       callback(collection.docs.map(doc => doc.data()))
     });
 }
@@ -55,7 +54,6 @@ export const deleteUser = async (uid) => {
     .then(() => { alert('deleted') })
     .catch((error) => alert(error))
 }
-
 export const authUser = (email, password, callback, history) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => callback(user))
