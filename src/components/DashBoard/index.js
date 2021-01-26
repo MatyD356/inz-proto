@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from '../Navigation'
 import { generateUserDocument } from '../../firebase'
-import { Route, Switch } from 'react-router-dom'
-import PrivateRoute from '../App/PrivateRoute'
+import { Route } from 'react-router-dom'
 import * as ROUTES from '../../constants/routes'
 import Admin from '../Admin';
 

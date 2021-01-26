@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Navigation from '../Navigation'
 import NewUserForm from '../NewUserForm'
 import { watchForChanges } from '../../firebase'
 
