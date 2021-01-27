@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/inz-proto/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/inz-proto/static/js/main.4cc28ea1.chunk.js",
+    "main.js.map": "/inz-proto/static/js/main.4cc28ea1.chunk.js.map",
+    "runtime-main.js": "/inz-proto/static/js/runtime-main.19edd728.js",
+    "runtime-main.js.map": "/inz-proto/static/js/runtime-main.19edd728.js.map",
+    "static/css/2.658248ec.chunk.css": "/inz-proto/static/css/2.658248ec.chunk.css",
+    "static/js/2.cf3aded0.chunk.js": "/inz-proto/static/js/2.cf3aded0.chunk.js",
+    "static/js/2.cf3aded0.chunk.js.map": "/inz-proto/static/js/2.cf3aded0.chunk.js.map",
+    "static/js/3.9af28e90.chunk.js": "/inz-proto/static/js/3.9af28e90.chunk.js",
+    "static/js/3.9af28e90.chunk.js.map": "/inz-proto/static/js/3.9af28e90.chunk.js.map",
+    "index.html": "/inz-proto/index.html",
+    "static/css/2.658248ec.chunk.css.map": "/inz-proto/static/css/2.658248ec.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/inz-proto/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.cf3aded0.chunk.js.LICENSE.txt": "/inz-proto/static/js/2.cf3aded0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.19edd728.js",
+    "static/css/2.658248ec.chunk.css",
+    "static/js/2.cf3aded0.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.4cc28ea1.chunk.js"
+  ]
+}
