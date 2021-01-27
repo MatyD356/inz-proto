@@ -46,7 +46,7 @@ export const getAllUsers = async (callback) => {
 export const watchForChanges = (callback) => {
   firestore.collection('users')
     .onSnapshot((collection) => {
-      callback(collection.docs.map(doc => doc.data()))
+      callback(collection.docs.map(doc => Object.assign({}, doc.data(), { id: doc.id })))
     });
 }
 export const deleteUser = async (uid) => {
@@ -61,5 +61,18 @@ export const authUser = (email, password, callback, history) => {
     .catch((error) => {
       const errorMessage = error.message;
       alert(errorMessage)
+    });
+}
+export const addDoc = (uid, name, lastName, type) => {
+  firestore.collection("users").doc(uid).set({
+    name,
+    lastName,
+    type
+  })
+    .then(function () {
+      console.log("Document successfully written!");
+    })
+    .catch(function (error) {
+      console.error("Error writing document: ", error);
     });
 }

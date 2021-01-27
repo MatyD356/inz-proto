@@ -1,6 +1,6 @@
 import React from 'react';
 import { authUser } from '../../firebase'
-import { Formik, Field, Form, ErrorMessage } from 'formik'
+import { Formik, Field, Form } from 'formik'
 
 const Login = ({ setCurrentUser, history }) => {
   return (
@@ -24,8 +24,9 @@ const Login = ({ setCurrentUser, history }) => {
             errors.password = 'Password must be 6 characters long';
           }
 
-          return errors;
-        }}>
+          return errors
+        }}
+      >
         {({ errors, touched }) => (
           <Form className='col-md-6 offset-md-3 min-vh-100 d-flex flex-column justify-content-center'>
             <div className='mb-3'>
