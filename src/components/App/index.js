@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 
 import DashBoard from '../DashBoard'
@@ -12,7 +12,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
   return (
     <div className='min-vh-100 d-flex flex-column'>
-      <BrowserRouter>
+      <HashRouter basename='/'>
         <Switch>
           <Route exact path={ROUTES.HOME} render={(props) => <Home {...props} />} />
           <Route path={ROUTES.LOGIN} render={(props) => <Login {...props} setCurrentUser={setCurrentUser} />} />
@@ -24,7 +24,7 @@ const App = () => {
           />
           <Route component={NotFound} />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </div>)
 };
 
